@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const setupGallery = (galleryId, mainImgId) => {
     const thumbs = document.querySelectorAll(`#${galleryId} .thumb-btn`);
     const mainImg = document.getElementById(mainImgId);
+    if (!mainImg || thumbs.length === 0) return;
 
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', () => {
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setupGallery('motion-light-gallery', 'motion-light-main');
+  setupGallery('mirror-clock-gallery', 'mirror-clock-main');
 
   // Fade-up Scroll Reveal Animations
   const fadeUpElements = document.querySelectorAll('.fade-up');
@@ -229,20 +231,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   // PACKAGE SELECTOR & DYNAMIC WHATSAPP ORDER LINK LOGIC
   // ========================================================
-  const packCards = document.querySelectorAll('.pack-card');
-  const orderBtn = document.getElementById('order-motion-light-btn');
+  const initPackSelector = (sectionSelector, orderBtnId, productName) => {
+    const section = document.querySelector(sectionSelector);
+    const orderBtn = document.getElementById(orderBtnId);
+    if (!orderBtn) return;
 
-  if (packCards.length > 0 && orderBtn) {
+    const packCards = section ? section.querySelectorAll('.pack-card') : document.querySelectorAll('.pack-card');
+    if (packCards.length === 0) return;
+
     const updateWhatsAppLink = (selectedCard) => {
-      const packPrice = selectedCard.getAttribute('data-price') || '399';
+      const packPrice = selectedCard.getAttribute('data-price') || '549';
       const packLabel = selectedCard.getAttribute('data-label') || '1 Pc';
       const currency = '₹';
 
-      const messageText = `Hi Sarfzo! I'd like to order ${packLabel} Motion Sensor Light (${currency}${packPrice} Doorstep Delivery Included) (Delivery to India).`;
+      const messageText = `Hi Sarfzo! I'd like to order ${packLabel} ${productName} (${currency}${packPrice} Doorstep Delivery Included) (Delivery to India).`;
       const encodedMsg = encodeURIComponent(messageText);
 
       orderBtn.setAttribute('href', `https://wa.me/971509667935?text=${encodedMsg}`);
-      orderBtn.innerHTML = `<i data-lucide="shopping-bag"></i> Order ${packLabel} via WhatsApp (${currency}${packPrice} Doorstep Delivery Included)`;
+      orderBtn.innerHTML = `<i data-lucide="shopping-bag"></i> Order ${packLabel} via WhatsApp (${currency}${packPrice})`;
 
       if (window.lucide) {
         lucide.createIcons();
@@ -250,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initialize with active card
-    const activePack = document.querySelector('.pack-card.active') || packCards[0];
+    const activePack = (section ? section.querySelector('.pack-card.active') : document.querySelector('.pack-card.active')) || packCards[0];
     if (activePack) {
       updateWhatsAppLink(activePack);
     }
@@ -262,5 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateWhatsAppLink(card);
       });
     });
-  }
+  };
+
+  initPackSelector('#motion-light', 'order-motion-light-btn', 'Motion Sensor Light');
+  initPackSelector('#mirror-clock', 'order-mirror-clock-btn', 'LED Mirror Clock');
 });
