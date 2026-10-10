@@ -125,9 +125,10 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="storefront.css">
 </head>
 
-<body>
+<body class="home-curated">
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -170,121 +171,44 @@
     </a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="ambient-glow hero-glow-1"></div>
-    <div class="container">
-      <div class="hero-content fade-up">
-        <div class="badge-pill">
-          <img src="assets/logo-emblem.png" alt="Sarfzo Emblem" class="badge-logo-img"> Welcome to Sarfzo
-        </div>
-        <h1>Smart Living. Made Simple.</h1>
-        <div class="hero-actions">
-          <a href="#storefront" class="btn btn-primary" id="hero-shop-btn">
-            Shop Now <i data-lucide="arrow-down-right"></i>
-          </a>
-          <a href="https://wa.me/971509667935?text=Hello%20Sarfzo!%20I'd%20like%20to%20inquire%20about%20your%20products."
-            target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="hero-whatsapp-btn">
-            <i data-lucide="message-circle"></i> WhatsApp Us
-          </a>
-        </div>
+  <main>
+  <section class="curated-hero" id="hero" aria-labelledby="hero-title">
+    <div class="container editorial-hero">
+      <div class="editorial-copy">
+        <span class="edit-label">SARFZO / SMART LIVING</span>
+        <h1 id="hero-title">Small details.<br>A different<br><em>feeling.</em></h1>
+        <p>Thoughtful lighting and everyday essentials.<br>Make your space feel more like you.</p>
+        <a class="btn btn-primary" href="#storefront">Explore the collection <span aria-hidden="true">↗</span></a>
+        <div class="hero-footnote"><span></span> Smart living. Made simple.</div>
       </div>
+      <a class="editorial-visual" href="zo-light.html" aria-label="Explore ZO’LIGHT motion sensor light">
+        <img src="assets/motion-light-3.jpg" width="1024" height="682" alt="Warm motion-sensor lighting along a wooden staircase" fetchpriority="high">
+        <span class="visual-kicker">IN THE SPOTLIGHT</span>
+        <div class="visual-caption"><div><span>LIGHT THAT MOVES WITH YOU</span><h2>Meet ZO’LIGHT.</h2></div><span class="circle-arrow" aria-hidden="true">↗</span></div>
+      </a>
     </div>
   </section>
 
-  <!-- Infinite Marquee Ticker -->
-  <div class="ticker-wrap">
-    <div class="ticker-content">
-      <div class="ticker-item">Smart Living <span class="ticker-star">✦</span> Room Transformation <span
-          class="ticker-star">✦</span> Next Level Lighting <span class="ticker-star">✦</span> Sarfzo <span
-          class="ticker-star">✦</span> Smart Home</div>
-      <div class="ticker-item">Smart Living <span class="ticker-star">✦</span> Room Transformation <span
-          class="ticker-star">✦</span> Next Level Lighting <span class="ticker-star">✦</span> Sarfzo <span
-          class="ticker-star">✦</span> Smart Home</div>
-      <div class="ticker-item">Smart Living <span class="ticker-star">✦</span> Room Transformation <span
-          class="ticker-star">✦</span> Next Level Lighting <span class="ticker-star">✦</span> Sarfzo <span
-          class="ticker-star">✦</span> Smart Home</div>
-      <div class="ticker-item">Smart Living <span class="ticker-star">✦</span> Room Transformation <span
-          class="ticker-star">✦</span> Next Level Lighting <span class="ticker-star">✦</span> Sarfzo <span
-          class="ticker-star">✦</span> Smart Home</div>
-    </div>
-  </div>
-
-  <!-- Storefront Grid -->
-  <section class="storefront-section" id="storefront">
+  <section class="collection-section" id="storefront" aria-labelledby="collection-title">
     <div class="container">
-      <div class="storefront-header fade-up">
-        <h2>Our Products</h2>
-        <p>Curated smart home lighting & ambience solutions.</p>
-      </div>
-      <div class="storefront-grid fade-up">
-        <!-- ZO'LIGHT Product Card -->
-        <a href="zo-light.html" class="store-card" id="card-zolight" style="text-decoration: none; color: inherit;">
-          <div class="store-card-img">
-            <img src="assets/motion-light-1.jpg" alt="ZO'LIGHT Motion Sensor Light">
-            <div class="store-card-badge">Bestseller</div>
-          </div>
-          <div class="store-card-info">
-            <span class="store-card-category">Smart Lighting</span>
-            <h3>ZO'LIGHT</h3>
-            <p>Light that moves with you. Automatic motion-sensing night light.</p>
-            <span class="store-card-action">View Details <i data-lucide="arrow-right"></i></span>
-          </div>
+      <div class="collection-heading"><div><span class="edit-label">THE SARFZO EDIT</span><h2 id="collection-title">Find your everyday upgrade.</h2></div><p>A small collection.<br>A considered choice.</p></div>
+      <div class="collection-toolbar"><div class="collection-filters" role="group" aria-label="Filter products"><button type="button" class="selected" data-category="all" aria-pressed="true">All products</button><button type="button" data-category="lighting" aria-pressed="false">Lighting</button><button type="button" data-category="clocks" aria-pressed="false">Clocks</button></div><span id="product-count" aria-live="polite">02 products</span></div>
+      <div class="curated-grid">
+        <a href="zo-light.html" class="curated-product" data-product-category="lighting" id="card-zolight">
+          <div class="product-picture light-picture"><img src="assets/motion-light-1.jpg" alt="ZO’LIGHT round motion sensor light glowing warmly on a wall" loading="lazy"><span class="picture-number">01 / LIGHTING</span><span class="product-arrow" aria-hidden="true">↗</span></div>
+          <div class="product-summary"><span class="edit-label">SMART LIGHTING</span><div class="product-title-row"><h3>ZO’LIGHT</h3><span class="product-price">₹399 <small>INR</small></span></div><p>A little light. Right when you need it.</p><span class="product-detail">Motion sensor light · From 1 piece</span></div>
         </a>
-
-        <!-- Digital LED Mirror Alarm Clock Product Card -->
-        <a href="mirror-clock.html" class="store-card" id="card-mirror-clock" style="text-decoration: none; color: inherit;">
-          <div class="store-card-img">
-            <img src="assets/mirror-clock-1.jpg" alt="Digital LED Mirror Alarm Clock">
-            <div class="store-card-badge">New Arrival</div>
-          </div>
-          <div class="store-card-info">
-            <span class="store-card-category">Smart Timekeeping</span>
-            <h3>Mirror Alarm Clock</h3>
-            <p>A modern LED mirror alarm clock designed to keep your essential information visible at a glance.</p>
-            <span class="store-card-action">View Details <i data-lucide="arrow-right"></i></span>
-          </div>
+        <a href="mirror-clock.html" class="curated-product" data-product-category="clocks" id="card-mirror-clock">
+          <div class="product-picture"><img src="assets/mirror-clock-1.jpg" alt="Black LED mirror alarm clock on a bedside table" loading="lazy"><span class="picture-number">02 / TIMEKEEPING</span><span class="product-arrow" aria-hidden="true">↗</span></div>
+          <div class="product-summary"><span class="edit-label">SMART TIMEKEEPING</span><div class="product-title-row"><h3>Mirror Alarm Clock</h3><span class="product-price">₹549 <small>INR</small></span></div><p>Make time for a better-looking bedside.</p><span class="product-detail">Digital LED display · From 1 piece</span></div>
         </a>
-
-        <!-- Black Edition Placeholder -->
-        <div class="store-card coming-soon-card-grid">
-          <div class="store-card-img">
-            <div class="placeholder-img-bg">
-              <i data-lucide="moon"></i>
-            </div>
-            <div class="store-card-badge dark-badge">Coming Soon</div>
-          </div>
-          <div class="store-card-info">
-            <span class="store-card-category">Smart Lighting</span>
-            <h3>ZO'LIGHT (Dark Edition)</h3>
-            <p>The same magic, now in matte black. For modern, stealthy interiors.</p>
-            <span class="store-card-action disabled-action">Notify Me</span>
-          </div>
-        </div>
-
       </div>
+      <p class="collection-note">Prices shown in INR. See each product for pack options and delivery details.</p>
     </div>
   </section>
 
-
-  <!-- Coming Soon Banner -->
-  <section class="coming-soon-section" id="coming-soon">
-    <div class="container">
-      <div class="coming-soon-card fade-up">
-        <div class="bg-glow"></div>
-        <div class="coming-soon-content">
-          <div class="badge-pill">Stay Tuned</div>
-          <h2>More Is Coming.</h2>
-          <p>We are continuously sourcing next-generation smart home innovations. Follow our official Instagram page to
-            stay updated on new product drops and exclusive offers.</p>
-          <a href="https://www.instagram.com/sarfzo/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-            id="instagram-follow-btn">
-            <i data-lucide="instagram"></i> Follow @sarfzo Instagram
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="next-section" id="coming-soon" aria-labelledby="next-title"><div class="container"><div class="next-strip"><div class="next-symbol" aria-hidden="true">◐</div><div class="next-copy"><span class="edit-label">COMING NEXT</span><h2 id="next-title">A darker shade of smart.</h2><p>ZO’LIGHT Dark Edition. Something new for your space.</p></div><a href="https://www.instagram.com/sarfzo/" target="_blank" rel="noopener noreferrer" class="next-link" id="instagram-follow-btn">Follow the next drop <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
 
   <!-- Why Sarfzo -->
   <section class="why-section" id="why-sarfzo">
@@ -361,6 +285,7 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="storefront.js"></script>
 </body>
 
 </html>
