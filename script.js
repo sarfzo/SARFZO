@@ -240,11 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (packCards.length === 0) return;
 
     const updateWhatsAppLink = (selectedCard) => {
-      const packPrice = selectedCard.getAttribute('data-price') || '549';
+      const packPrice = selectedCard.getAttribute('data-price') || '320';
       const packLabel = selectedCard.getAttribute('data-label') || '1 Pc';
       const currency = '₹';
 
-      const messageText = `Hi Sarfzo! I'd like to order ${packLabel} ${productName} (${currency}${packPrice} Doorstep Delivery Included) (Delivery to India).`;
+      const messageText = `Hi Sarfzo! I'd like to order ${packLabel} ${productName} (${currency}${packPrice}).`;
       const productCode = orderBtn.getAttribute('data-product-code');
       const encodedMsg = encodeURIComponent(messageText + (productCode ? ` Product Code: ${productCode}` : ''));
 
