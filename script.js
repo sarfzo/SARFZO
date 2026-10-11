@@ -169,14 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
         el.glow.setAttribute('r', 120 + (prox * 40));
 
         if (el.sensor) {
-          el.sensor.setAttribute('fill', '#FFFFFF');
-          el.sensor.setAttribute('stroke', '#FFFFFF');
+          el.sensor.setAttribute('fill', 'var(--accent)');
+          el.sensor.setAttribute('stroke', 'var(--accent)');
           el.sensor.setAttribute('stroke-width', '4');
         }
 
         if (el.ring) {
           el.ring.style.opacity = '0.9';
-          el.ring.setAttribute('stroke', '#FFFFFF');
+          el.ring.setAttribute('stroke', 'var(--accent)');
         }
 
         if (el.statusDot) el.statusDot.classList.add('active');
@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         el.glow.setAttribute('r', '110');
 
         if (el.sensor) {
-          el.sensor.setAttribute('fill', '#A1A1AA');
-          el.sensor.setAttribute('stroke', '#444444');
+          el.sensor.setAttribute('fill', 'var(--text-secondary)');
+          el.sensor.setAttribute('stroke', 'var(--border-color)');
           el.sensor.setAttribute('stroke-width', '2');
         }
 
