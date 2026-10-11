@@ -245,7 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const currency = '₹';
 
       const messageText = `Hi Sarfzo! I'd like to order ${packLabel} ${productName} (${currency}${packPrice} Doorstep Delivery Included) (Delivery to India).`;
-      const encodedMsg = encodeURIComponent(messageText);
+      const productCode = orderBtn.getAttribute('data-product-code');
+      const encodedMsg = encodeURIComponent(messageText + (productCode ? ` Product Code: ${productCode}` : ''));
 
       orderBtn.setAttribute('href', `https://wa.me/971509667935?text=${encodedMsg}`);
       orderBtn.innerHTML = `<i data-lucide="shopping-bag"></i> Order ${packLabel} via WhatsApp (${currency}${packPrice})`;
